@@ -1,4 +1,8 @@
 from flask_marshmallow import Marshmallow
+from models.user import User
+from models.employee import Employee
+from models.location import Location
+from models.hour import Hour
 
 ma = Marshmallow()
 

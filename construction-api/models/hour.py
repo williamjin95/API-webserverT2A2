@@ -1,4 +1,6 @@
-from models.init import db
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 class Hour(db.Model):
     id = db.Column(db.Integer, primary_key=True)
