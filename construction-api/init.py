@@ -13,7 +13,7 @@ migrate = Migrate()
 
 # Import blueprints
 from blueprints.auth_bp import auth_bp
-from blueprints.employees import employees_bp
+from blueprints.employees_bp import employees_bp
 from blueprints.hours import hours_bp
 from blueprints.locations import locations_bp
 
