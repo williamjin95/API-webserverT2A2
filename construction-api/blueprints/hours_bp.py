@@ -1,6 +1,7 @@
 from flask import request, jsonify, Blueprint
-from models import db, Hour
-from schemas import hour_schema, hours_schema
+from models.hour import Hour
+from app import db
+from schema import hour_schema, hours_schema
 from flask_jwt_extended import jwt_required
 
 hours_bp = Blueprint('hours', __name__)
