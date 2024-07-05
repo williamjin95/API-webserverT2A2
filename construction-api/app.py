@@ -22,10 +22,10 @@ def create_app():
     migrate.init_app(app, db)
 
     # Import and register blueprints
-    from blueprints.auth import auth_bp
-    from blueprints.employees import employees_bp
-    from blueprints.hours import hours_bp
-    from blueprints.locations import locations_bp
+    from blueprints.auth_bp import auth_bp
+    from blueprints.employees_bp import employees_bp
+    from blueprints.hours_bp import hours_bp
+    from blueprints.locations_bp import locations_bp
 
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(employees_bp, url_prefix='/api/employees')
