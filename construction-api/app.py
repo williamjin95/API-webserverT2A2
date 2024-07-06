@@ -1,15 +1,13 @@
 from flask import Flask
-from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_jwt_extended import JWTManager
-from flask_migrate import Migrate
+from config import Config
 
 # Initialize extensions
 db = SQLAlchemy()
 ma = Marshmallow()
 jwt = JWTManager()
-migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
@@ -19,7 +17,6 @@ def create_app():
     db.init_app(app)
     ma.init_app(app)
     jwt.init_app(app)
-    migrate.init_app(app, db)
 
     # Import and register blueprints
     from blueprints.auth_bp import auth_bp
@@ -35,7 +32,5 @@ def create_app():
     return app
 
 if __name__ == '__main__':
-    app = create_app()
-    with app.app_context():
-        db.create_all()  # Create database tables
-    app.run(debug=True)  # Run the app in debug mode
+    app = create_app() # Create database tables
+    app.run(debug=True) # Run the app in debug mode

@@ -1,8 +1,8 @@
 from flask import request, jsonify, Blueprint
+from flask_jwt_extended import jwt_required
 from models.location import Location
 from app import db
 from schema import location_schema, locations_schema
-from flask_jwt_extended import jwt_required
 
 locations_bp = Blueprint('locations', __name__)
 

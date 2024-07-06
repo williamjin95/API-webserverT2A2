@@ -1,8 +1,8 @@
 from flask import request, jsonify, Blueprint
+from flask_jwt_extended import jwt_required
 from models.employee import Employee
 from app import db
 from schema import employee_schema, employees_schema
-from flask_jwt_extended import jwt_required
 
 employees_bp = Blueprint('employees', __name__)
 
