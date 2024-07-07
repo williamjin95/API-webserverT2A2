@@ -42,8 +42,128 @@ For example, you can define an Employee model, create a new employee, and manage
 
 ## R6 ##
 
-![ERD](/Users/willybumjin/projects/api-webserver/API-webserverT2A2/docs/constructionapi.png)
+![ERD](/docs/constructionapi.png)
 
 ## R7 ##
 
+User:
+
+Attributes: id, username, password
+Purpose: Stores user authentication details.
+
+Employee:
+
+Attributes: id, name, position
+Purpose: Stores employee details.
+Relationship: One-to-many with Hour.
+
+Location:
+
+Attributes: id, address
+Purpose: Stores job location details.
+Relationship: One-to-many with Hour.
+
+Hour:
+
+Attributes: id, date, hours, employee_id, location_id
+Purpose: Records hours worked by employees at specific locations.
+Relationships: Many-to-one with Employee and Location.
+
+Benefits
+Data Integrity: Foreign keys ensure valid references, preventing orphan records.
+Efficient Retrieval: Simplifies complex queries with JOIN operations.
+Simplified Queries: Easy access to related records.
+Maintainability: Clear structure for easy modifications.
+Normalization: Reduces redundancy and ensures consistency.
+
 ## R8 ##
+
+Register a New User:
+
+POST /api/auth/register
+Body: {"username": "string", "password": "string"}
+Response: {"id": "integer", "username": "string"}
+
+Login:
+
+POST /api/auth/login
+Body: {"username": "string", "password": "string"}
+Response: {"access_token": "string"}
+
+Create a New Employee:
+
+POST /api/employees/
+Headers: Authorization: Bearer <your_jwt_token>
+Body: {"name": "string", "position": "string"}
+Response: {"id": "integer", "name": "string", "position": "string"}
+
+Get All Employees:
+
+GET /api/employees/
+Headers: Authorization: Bearer <your_jwt_token>
+Response: [{"id": "integer", "name": "string", "position": "string"}, ...]
+
+Update an Employee:
+
+PUT /api/employees/<int:id>
+Headers: Authorization: Bearer <your_jwt_token>
+Body: {"name": "string", "position": "string"}
+Response: {"id": "integer", "name": "string", "position": "string"}
+
+Delete an Employee:
+
+DELETE /api/employees/<int:id>
+Headers: Authorization: Bearer <your_jwt_token>
+Response: 204 No Content
+
+Create a New Location:
+
+POST /api/locations/
+Headers: Authorization: Bearer <your_jwt_token>
+Body: {"address": "string"}
+Response: {"id": "integer", "address": "string"}
+
+Get All Locations:
+
+GET /api/locations/
+Headers: Authorization: Bearer <your_jwt_token>
+Response: [{"id": "integer", "address": "string"}, ...]
+
+Update a Location:
+
+PUT /api/locations/<int:id>
+Headers: Authorization: Bearer <your_jwt_token>
+Body: {"address": "string"}
+Response: {"id": "integer", "address": "string"}
+
+Delete a Location:
+
+DELETE /api/locations/<int:id>
+Headers: Authorization: Bearer <your_jwt_token>
+Response: 204 No Content
+
+Create a New Hour Entry:
+
+POST /api/hours/
+Headers: Authorization: Bearer <your_jwt_token>
+Body: {"date": "YYYY-MM-DD", "hours": "float", "employee_id": "integer", "location_id": "integer"}
+Response: {"id": "integer", "date": "YYYY-MM-DD", "hours": "float", "employee_id": "integer", "location_id": "integer"}
+
+Get All Hour Entries:
+
+GET /api/hours/
+Headers: Authorization: Bearer <your_jwt_token>
+Response: [{"id": "integer", "date": "YYYY-MM-DD", "hours": "float", "employee_id": "integer", "location_id": "integer"}, ...]
+
+Update an Hour Entry:
+
+PUT /api/hours/<int:id>
+Headers: Authorization: Bearer <your_jwt_token>
+Body: {"date": "YYYY-MM-DD", "hours": "float", "employee_id": "integer", "location_id": "integer"}
+Response: {"id": "integer", "date": "YYYY-MM-DD", "hours": "float", "employee_id": "integer", "location_id": "integer"}
+
+Delete an Hour Entry:
+
+DELETE /api/hours/<int:id>
+Headers: Authorization: Bearer <your_jwt_token>
+Response: 204 No Content
