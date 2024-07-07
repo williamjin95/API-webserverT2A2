@@ -1,5 +1,7 @@
 from app import db
 
+# Hour model to store hours worked by employees at different locations #
+
 class Hour(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False)

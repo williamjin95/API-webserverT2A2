@@ -16,11 +16,33 @@ The Construction Company API ensures efficient project management, optimal resou
 
 ## R3 ##
 
+Flask: This is the core framework used to build the web server, handling routing, requests, and responses.
+
+Flask-SQLAlchemy: An extension that adds support for SQLAlchemy, used to interact with the PostgreSQL database, define models, and perform CRUD operations.
+
+Flask-Marshmallow: An extension that integrates Marshmallow with Flask for serializing, deserializing, and validating data.
+
+Flask-JWT-Extended: A package used for handling user authentication by creating and verifying JSON Web Tokens (JWT), and protecting routes that require authentication.
+
+psycopg2-binary: The PostgreSQL database adapter for Python, enabling SQLAlchemy to interact with the PostgreSQL database.
+
+Marshmallow-SQLAlchemy: An extension for Marshmallow that simplifies the serialization and deserialization of SQLAlchemy models by creating schemas based on these models.
+
 ## R4 ##
+
+Benefits: PostgreSQL offers reliability, advanced features, scalability, and strong security, making it a robust choice for a construction company database where data integrity and advanced querying capabilities are essential.
+
+Drawbacks: PostgreSQL's complexity, performance overhead, resource intensity, and maintenance requirements can be challenging, especially for teams without specialized knowledge. While managed services can help, they may introduce additional costs.
 
 ## R5 ##
 
+SQLAlchemy, with Flask-SQLAlchemy, is used in this app to interact with the database using Python classes instead of SQL. It allows defining models, managing relationships, and performing CRUD operations in a readable and maintainable way. This abstraction increases productivity, improves security by preventing SQL injection, and ensures database schema is managed through Python code.
+
+For example, you can define an Employee model, create a new employee, and manage relationships like work hours at different locations using SQLAlchemy's ORM features. This makes database operations simpler and more secure.
+
 ## R6 ##
+
+![ERD](/Users/willybumjin/projects/api-webserver/API-webserverT2A2/docs/constructionapi.png)
 
 ## R7 ##
 
